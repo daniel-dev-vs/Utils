@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Aprendizado.Models.TesteModel>
+
+@{
+    ViewBag.Title = "Teste";
+}
+
+<h2>Teste</h2>
+
+
+@using Aprendizado.Models 
+
+<h2>Product List using XML</h2>
+    <table>
+        <tr>
+            <th>Teste Id</th>
+            <th>Nome</th>
+            <th>SobreNome</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TesteId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SobreNome)
+                </td>
+            </tr>
+        }
+    </table>

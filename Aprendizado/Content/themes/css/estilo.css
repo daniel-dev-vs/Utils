@@ -1,0 +1,122 @@
+body {
+    overflow-x: hidden;
+}
+
+.bordaTopo {
+    border-top: 5px solid #260B01; /* marrom */
+    border-bottom: 5px solid #F15971; /* rosa */
+}
+
+header {
+    background-color: #E75D63;
+    height: 120px;
+}
+
+.logo {
+    margin-top: 22px;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(../font/because_i_am_happy/Because_Happy_Regular.woff);
+}
+
+.tituloGenerico {
+    font-family: myFirstFont;
+    text-align: center;
+}
+
+.textoQuemSomos {
+    text-align: justify;
+    word-spacing: 1.7px;
+    line-height: 30px;
+    text-indent: 10px;
+    margin-top: -40px !important;
+}
+
+.primeiraLetra::first-letter {
+    font-size: 200%;
+    color: #F15971;
+}
+
+.img-topo {
+    margin-top: -40px;
+}
+
+.img-divisora {
+    margin-top: -50px;
+    margin-bottom: -70px;
+}
+
+.img-doce {
+    cursor: pointer;
+}
+
+.floral-modal {
+    margin-top: -40px;
+    margin-bottom: -40px;
+}
+
+.galeria-imagens .modal-content img {
+    border-radius: 5px 5px 5px 5px;
+}
+
+.nav-wrapper .tituloGenerico {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.descContato {
+    margin-top: -30px !important;
+}
+
+    .descContato p {
+        line-height: 10px;
+        text-align: center;
+        word-spacing: 1.7px;
+        letter-spacing: 1.0px;
+        font-size: 15px;
+        text-indent: 10px;
+    }
+
+.iconSocial p a {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.contato {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+    .contato p a {
+        margin-top: 20px !important;
+    }
+
+
+.imagens {
+    cursor: pointer;
+    width: 10% !important;
+    height: 10% !important;
+}
+
+.naoEditar {
+    
+}
+
+#checarTodos {
+    display: inline;
+    position: static;
+}
+
+#selectedFiles img {
+    max-width: 125px;
+    max-height: 125px;
+    display:inline;
+    margin-bottom: 10px;
+}
+
+.imgLoaded {
+    padding-right: 10px;
+
+}

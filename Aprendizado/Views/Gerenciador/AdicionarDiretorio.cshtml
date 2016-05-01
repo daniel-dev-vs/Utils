@@ -1,0 +1,45 @@
+﻿@model Domain.Entidades.Diretorio
+@{
+    ViewBag.Title = "Adicionar Diretorio";
+    Layout = "~/Views/Shared/LayoutDM.cshtml";
+}
+
+<h2>Adicionar Diretorio</h2>
+
+
+
+
+
+@using (@Html.BeginForm("AdicionarDiretorio", "Gerenciador", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Criar um novo diretorio</legend>
+        <div class="editor-label">
+            Adicionar diretorio
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Nome)
+            @Html.ValidationMessageFor(m => m.Nome)
+        </div>
+
+
+
+
+       
+            <input type="submit" value="Salvar" />
+
+     
+
+    </fieldset>
+
+}
+
+

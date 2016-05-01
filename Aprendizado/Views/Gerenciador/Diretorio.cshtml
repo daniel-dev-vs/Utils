@@ -1,0 +1,22 @@
+﻿@model List<Domain.Entidades.Diretorio>
+@{
+    ViewBag.Title = "Diretorio";
+    Layout = "~/Views/Shared/LayoutDM.cshtml";
+    
+}
+
+<h2>Diretorio</h2>
+
+
+
+   
+       @foreach (var item in Model)
+       {
+           <div>
+              @Html.ActionLink(item.Nome, "EditarDiretorio", new { diretorioId = item.DiretorioId })
+           </div>
+        
+       }
+
+        
+<p><a href="~/Gerenciador/AdicionarDiretorio">Adicionar Diretorio</a></p>

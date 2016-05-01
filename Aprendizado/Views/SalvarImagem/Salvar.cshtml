@@ -1,0 +1,83 @@
+﻿@model Aprendizado.Models.Imagem
+
+@{
+    ViewBag.Title = "Salvar";
+}
+
+<h2>Salvar</h2>
+@using (@Html.BeginForm("Salvar", "SalvarImagem", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Salvar Imagem</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NomeArquivo)
+        </div>
+        <div class="editor-field">
+            <input data-val="true"
+                   data-val-required="The PictureFile field is required."
+                   id="NomeArquivo" name="NomeArquivo" type="file"  multiple accept="image/*" />
+            
+            <input type="submit" value="Salvar" />
+
+            <div id="selectedFiles"></div>
+        </div>
+
+    </fieldset>
+    @section danielScript
+        {
+        <script>
+            var selDiv = "";
+
+            document.addEventListener("DOMContentLoaded", init, false);
+
+            function init() {
+                document.querySelector('#NomeArquivo').addEventListener('change', handleFileSelect, false);
+                selDiv = document.querySelector("#selectedFiles");
+            }
+
+            function handleFileSelect(e) {
+
+                if (!e.target.files || !window.FileReader) return;
+
+                selDiv.innerHTML = "";
+                var i =0;
+                var files = e.target.files;
+                var filesArr = Array.prototype.slice.call(files);
+                filesArr.forEach(function (f) {
+                    
+                    var f = files[i];
+                    if (!f.type.match("image.*")) {
+                        return;
+                    }
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+                        selDiv.innerHTML += html;
+                    }
+                    i++;
+                    reader.readAsDataURL(f);
+                });
+
+            }
+        </script>
+    }
+    @section danielStyles
+        {
+        <style>
+            #selectedFiles img {
+                max-width: 125px;
+                max-height: 125px;
+                float: left;
+                margin-bottom: 10px;
+            }
+        </style>
+    }
+}
+
+
+

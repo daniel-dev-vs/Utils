@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Aprendizado.Models.Diretorio>
+
+@{
+    ViewBag.Title = "Mostrar Diretorio";
+}
+
+<h2>Mostrar Diretorios</h2>
+
+@foreach (var item in Model)
+{
+
+    <h1>@Html.DisplayFor(modelItem => item.Nome)</h1>
+    <p>@Html.DisplayFor(modelItem => item.QuantidadeFotos)</p> 
+
+}

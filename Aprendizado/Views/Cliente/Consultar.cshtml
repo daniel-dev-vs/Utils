@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Aprendizado.Models.ClienteModel>
+@{
+    ViewBag.Title = "Consultar";
+    Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+}
+
+<h2>Consultar</h2>
+
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.Nome)</th>
+        <th>@Html.DisplayNameFor(m => m.SobreNome)</th>
+        <th>@Html.DisplayNameFor(m => m.Telefone)</th>
+        <th></th>
+    </tr>
+
+    @foreach(var item in Model){
+    <tr> 
+        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+        <td>@Html.DisplayFor(modelItem => item.SobreNome)</td>
+        <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
+    </tr>
+    }
+</table>

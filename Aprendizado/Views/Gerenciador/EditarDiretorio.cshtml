@@ -1,0 +1,74 @@
+﻿@using Domain.Entidades;
+@{
+    ViewBag.Title = "EditarDiretorio";
+    Layout = "~/Views/Shared/LayoutDM.cshtml";
+    var Imagens = (List<Imagem>)ViewData["Imagens"];
+    var Diretorio = (Diretorio)ViewData["Diretorio"];
+}
+
+@Styles.Render("~/Content/Gerenciador/Gerenciador.css")
+@Scripts.Render("~/Scripts/Gerenciador/EditarDiretorio.js")
+
+
+
+@using (Html.BeginForm("EditarDiretorio", "Gerenciador", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <h3>Diretorio: @Diretorio.Nome</h3>
+    <input type="button" id="btnEditar" value="Editar Diretorio"/>
+    <fieldset>
+        <legend>Editar Imagens</legend>
+        <div class="edicao naoEditar">
+            <p style="display:inline">Mudar o nome diretório:</p> <input type="text" name="renameDiretorio" />
+        </div><br>
+        <input type="hidden" name="idDiretorio" value="@(Diretorio.DiretorioId)" />
+
+        <div class="edicao naoEditar">
+            <p style="display:inline">Selecionar todas as imagens </p> <input type="checkbox"  id="checarTodos" />
+        </div><br>
+        
+        <div>
+            @foreach (var item in Imagens)
+            {
+                <input type="checkbox" class="checkD edicao naoEditar" name="idImagens" id="@(item.ImagemId)"  value="@(item.ImagemId)"/>
+                <section class="col m3 l3 modal-trigger" href="#modal1" style="display:inline" >                   
+                    <img id="@(Diretorio.DiretorioId)" class="responsive-img imagens" src="~/Content/Imagens/@(Diretorio.Nome)/@(item.Nome)@(item.Extensao)" alt="" />
+                </section>
+
+            }
+        </div>
+
+
+    </fieldset>
+
+    <div class="edicao naoEditar">
+        <fieldset>
+            <legend>Salvar Imagem</legend>
+            <div class="editor-label">
+                Adicionar Imagens
+            </div>
+            <div class="editor-field">
+                <input data-val="true"
+                       data-val-required="The PictureFile field is required."
+                       id="file" name="files" type="file" multiple accept="image/*" />
+            </div>
+            <br/>
+            <div id="selectedFiles"></div>
+        </fieldset>
+    </div>
+  
+    <div><input type="submit"  class="edicao" style="float:right;" value="Salvar" /></div>
+
+
+
+    <div style="z-index: 1003; display: none; opacity: 0; transform: scaleX(0.7); top: 284.826px;" id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col m12">
+                    <img src="" id="mod" class="responsive-img floral-modal" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+}

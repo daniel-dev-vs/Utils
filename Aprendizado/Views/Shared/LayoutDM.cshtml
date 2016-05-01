@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/themes/css/materialize.min.css")" media="screen,projection" />
+    <!-- CSS para customizações específicar -->
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/themes/css/estilo.css")" media="screen,projection" />
+
+    <!--Import jQuery before materialize.js-->
+    <script src="@Url.Content("https://code.jquery.com/jquery-2.1.1.min.js")"></script>
+    <script src="@Url.Content("~/Content/themes/js/materialize.min.js")"></script>
+    <script src="@Url.Content("~/Content/Gerenciador/Gerenciador.js")"></script>
+
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("DMBiscoito", "Index", "Gerenciador")</p>
+            </div>
+  
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Copyright DK Desenvolvimento </p>
+            </div>
+        </div>
+    </footer>
+
+  
+
+</body>
+</html>

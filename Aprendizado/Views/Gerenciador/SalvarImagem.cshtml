@@ -1,0 +1,33 @@
+﻿@*@model List<Domain.Entidades.Imagem>*@
+@{
+    ViewBag.Title = "Imagem";
+    Layout = "~/Views/Shared/LayoutDM.cshtml";
+}
+
+<h2>Imagem</h2>
+
+
+@using (@Html.BeginForm("SalvarImagem", "Gerenciador", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Salvar Imagem</legend>
+        <div class="editor-label">
+            Adicionar Imagens
+        </div>
+        <div class="editor-field">
+            <input data-val="true"
+                   data-val-required="The PictureFile field is required."
+                   id="file" name="files" type="file" multiple accept="image/*" />
+
+            <input type="submit" value="Salvar" />
+
+        </div>
+
+    </fieldset>
+
+}
+
