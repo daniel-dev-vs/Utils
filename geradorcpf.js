@@ -33,7 +33,7 @@ window.onload = function () {
 	    arr.push(dig2);
 	    var str = "";
 
-	    for (i = 0; i < 11; i++) {
+	    for (var i = 0; i < 11; i++) {
 	        str += arr[i].toString();
 	    }
 
@@ -76,7 +76,7 @@ window.onload = function () {
 	function somar(tamanho, res){
 		var soma = 0;
 
-		for (i = 0; i < tamanho; i++) {
+		for (var i = 0; i < tamanho; i++) {
 	        soma += res[i];
 	    }
 
